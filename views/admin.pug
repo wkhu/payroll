@@ -1,24 +1,30 @@
 doctype html
-html
+html(ng-app="Payroll")
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(name='theme-color' content='#4DA5F4')
     meta(name='csrf-token', content=_csrf)
-    title #{title} - Hackathon Starter
+    title #{title} - WK Payroll
+    base(href="//#{base}/")
     link(rel='shortcut icon', href='/favicon.png')
     link(rel='stylesheet', href='/css/main.css')
+    script(src="/js/lib/angular.js")
+    link(rel="stylesheet" href="/css/angular-material.min.css")
+    script(src="/js/lib/angular-animate.js")
+    script(src="/js/lib/angular-aria.js")
+    script(src="/js/lib/angular-material.js")
+    script(src="/js/lib/angular-route.js")
+    script(src="/js/lib/angular-messages.js")
+    script(src="/js/access/app.js")
+    script(src="/js/access/login/login.js")
+    script(src="/js/access/signup/signup.js")
+    script(src="/js/services/toast.js")
 
   body
-    include partials/header
-
-    .container
-      include partials/flash
-      block content
-
-    include partials/footer
-
+    ng-view
+  
     script(src='/js/lib/jquery.min.js')
     script(src='/js/lib/popper.min.js')
     script(src='/js/lib/bootstrap.min.js')
@@ -32,3 +38,5 @@ html
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-XXXXX-X', 'auto');
       ga('send', 'pageview');
+
+    
